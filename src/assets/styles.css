@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=VT323&display=swap');
+
+body {
+  font-family: 'VT323', monospace;
+  text-transform: uppercase;
+  font-size: 2rem;
+  background-color: #020202;
+  color: #24e200BB;
+  text-shadow: 0 0 15px #24c200AA, 0 0 50px #24c20044;
+}
+
+svg {
+  margin-bottom: -2rem;
+}
+
+svg>text,
+.title {
+  color: #24e200BB;
+  font-family: 'Black Ops One', cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 5rem;
+  font-weight: initial;
+}
+
+h3 {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  font-weight: normal;
+  background-color: #24c200;
+  color: #020202;
+  line-height: 2.5rem;
+}
+
+hr {
+  border: none;
+  border-bottom: 5px dashed #24c200;
+  margin: 2rem auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 1rem;
+  margin: 1rem auto;
+  padding: 0;
+}
+
+thead th,
+tbody td {
+  width: 1.75rem;
+  height: 1.75rem;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+thead th,
+.header {
+  font-weight: normal;
+}
+
+.grid {
+  border: 1px solid #24c200;
+}
+
+.hit {
+  background-color: #24e200CC;
+  box-shadow: 0 0 20px #24c200AA;
+}
+
+.sunk {
+  text-decoration: line-through;
+  color: red;
+}
+
+.history {
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  border: 2px solid #24c200;
+  background-color: #24c20011;
+}
+
+ul {
+  margin: 0 auto 2rem;
+  padding: 1rem;
+  list-style: none;
+  text-align: right;
+  border: 2px solid #24c200;
+  background-color: #24c20011;
+}

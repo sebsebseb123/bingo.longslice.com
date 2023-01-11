@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bingolongslicecom-staging-144940-authRole",
+      "UnauthRoleArn": "arn:aws:iam::784638757103:role/amplify-bingolongslicecom-staging-144940-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::784638757103:role/amplify-bingolongslicecom-staging-144940-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-bingolongslicecom-staging-144940-deployment",
+      "UnauthRoleName": "amplify-bingolongslicecom-staging-144940-unauthRole",
+      "StackName": "amplify-bingolongslicecom-staging-144940",
+      "StackId": "arn:aws:cloudformation:us-east-1:784638757103:stack/amplify-bingolongslicecom-staging-144940/d8c12210-902c-11ed-bcde-12a98319b803",
+      "AmplifyAppId": "drcvd9dz2vg0a"
+    },
+    "categories": {
+      "auth": {
+        "bingolongslicecom": {}
+      }
+    }
+  }
+}
