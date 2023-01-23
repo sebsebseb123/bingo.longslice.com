@@ -1,8 +1,8 @@
-export default function History(props) {
+export default function History({ shots }) {
   return (
     <>
       <h3>Target History</h3>
-      <div className="history">{props.shots.join(', ')}</div>
+      <div className="history">{shots.join(', ')}</div>
     </>
   );
 }

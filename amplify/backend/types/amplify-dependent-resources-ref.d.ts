@@ -17,12 +17,10 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolName": "string"
     }
   },
-  "hosting": {
-    "S3AndCloudFront": {
-      "HostingBucketName": "string",
-      "Region": "string",
-      "S3BucketSecureURL": "string",
-      "WebsiteURL": "string"
+  "storage": {
+    "bingoSoundboard": {
+      "BucketName": "string",
+      "Region": "string"
     }
   }
 }

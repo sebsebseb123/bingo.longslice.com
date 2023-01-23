@@ -56,5 +56,12 @@
       "providerPlugin": "awscloudformation",
       "service": "S3AndCloudFront"
     }
+  },
+  "storage": {
+    "bingoSoundboard": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
   }
 }
