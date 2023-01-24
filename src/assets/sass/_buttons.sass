@@ -1,0 +1,40 @@
+.admin-buttons
+  display: flex
+  gap: 2rem
+  justify-content: space-around
+
+body button
+  padding: 0 0.75rem
+  margin: 0 0.5rem
+  font-size: 2rem
+  text-shadow: 0 0 3px #000C
+  box-shadow: 0 0 5px #24c200
+  border: 3px ridge #999
+  background-image: linear-gradient(315deg, #AAA, #666)
+  transition: all 0.25s ease
+  text-transform: uppercase
+  &:hover
+    box-shadow: 0 0 10px #24c200
+    text-shadow: 0 0 10px #000C
+    border-style: outset
+  &:active
+    border-style: inset
+
+.action-buttons button
+  background-image: linear-gradient(315deg, #900, #F00)
+  border-color: #900
+
+.ship-buttons
+  display: flex
+  flex-wrap: wrap
+  gap: 1rem 0.5rem
+  & button
+    flex-grow: 1
+
+.reset-buttons
+  display: flex
+  justify-content: space-around
+  & button
+    font-size: 1.25rem
+    background-image: linear-gradient(315deg, #003e95, #00bdff)
+    border-color: #003e95

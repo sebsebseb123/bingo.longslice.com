@@ -1,0 +1,35 @@
+@import 'media'
+@import 'reset'
+@import 'typography'
+@import 'buttons'
+
+body
+  background-color: #020202
+  margin: 0 0 1rem
+  @include media-small
+    margin: 1rem
+
+h2, h3
+  background-color: #24c200
+
+hr
+  border: none
+  border-bottom: 2px dashed #24c200
+  box-shadow: 0 0 10px #24c200
+
+.cards
+  display: block
+  @include media-small
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    gap: 1rem
+
+.card
+  margin-top: 5rem
+  &:first-child
+    margin-top: 0
+  @include media-small
+    margin-top: 0
+
+footer
+  margin-top: 5rem

@@ -51,14 +51,44 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "S3Triggercbc5aba2": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {
     "S3AndCloudFront": {
       "providerPlugin": "awscloudformation",
       "service": "S3AndCloudFront"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_S3Triggercbc5aba2_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "S3Triggercbc5aba2"
+        }
+      ]
+    },
+    "AMPLIFY_function_S3Triggercbc5aba2_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "S3Triggercbc5aba2"
+        }
+      ]
+    }
+  },
   "storage": {
     "bingoSoundboard": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    },
+    "newBingo": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"

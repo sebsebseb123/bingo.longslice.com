@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 
-import {
-  Box,
-  Button,
-  ButtonGroup,
-} from '@mui/material'
-import Grid from '@mui/material/Unstable_Grid2'
-
 import Root from './root'
 import { DataStore, Storage } from 'aws-amplify'
 import { Game } from '../models'
@@ -15,7 +8,7 @@ import { withAuthenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import { resolveAuthenticatorComponents } from '@aws-amplify/ui-react-core'
 
-import SoundCard from '../components/SoundCard'
+import SoundBoard from '../components/SoundBoard'
 
 function Admin({ signOut, user }) {
   const [filez, setFilez] = useState([]);
@@ -53,7 +46,7 @@ function Admin({ signOut, user }) {
     let shot = findShot(original.shots);
     await DataStore.save(
       Game.copyOf(original, updated => {
-        updated.shots.push(shot);
+        updated.shots.unshift(shot);
       })
     )
   }
@@ -75,7 +68,7 @@ function Admin({ signOut, user }) {
 
   function listFilez() {
     const fileResultz = [];
-    Storage.list('')
+    Storage.list('', { pageSize: 'ALL' })
       .then((response) => {
         response.results.map(async (result) => {
           let fileURI = await Storage.get(result.key);
@@ -88,6 +81,8 @@ function Admin({ signOut, user }) {
   }
 
   async function selectFile(files) {
+    console.log("selseceted filezzz");
+    console.log(files);
     // if (e.type == undefined) return;
     const file = files[0];
     try {
@@ -108,6 +103,7 @@ function Admin({ signOut, user }) {
     onDrop: selectFile,
     accept: {
       'audio/mpeg': [],
+      'audio/wav': [],
     },
     maxFiles: 1,
   });
@@ -120,35 +116,26 @@ function Admin({ signOut, user }) {
       <hr />
       {
         filez.map((file, i) => {
-          return (<SoundCard key={file.key} file={file} />);
+          console.log(file);
+          return (<SoundBoard key={file.key} file={file} />);
         })
       }
       <hr />
-      <Box sx={{ display: 'flex', flexGrow: 1, textAlign: 'center' }}>
-        <Grid container spacing={2}>
-          <Grid>
-            <Button onClick={fireShot} variant="contained" color="error">💣Fire💥</Button>
-          </Grid>
-          <Grid>
-            <ButtonGroup variant="contained" color="primary">
-              {ships.map((ship) => <Button key={ship} value={ship} onClick={sinkShip}>{ship}</Button>)}
-            </ButtonGroup>
-          </Grid>
-        </Grid>
-      </Box>
+      <div className="admin-buttons">
+        <div className="action-buttons">
+          <button onClick={fireShot}>💣Fire💥</button>
+        </div>
+        <div className="ship-buttons">
+          {ships.map((ship) => <button key={ship} value={ship} onClick={sinkShip}>{ship}</button>)}
+        </div>
+      </div>
       <hr />
       <Root />
       <hr />
-      <Box sx={{ display: 'flex', flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid>
-            <Button onClick={signOut} variant="outlined" color="error">Sign out</Button>
-          </Grid>
-          <Grid>
-            <Button onClick={resetGrid} variant="outlined" color="error">Reset Grid</Button>
-          </Grid>
-        </Grid>
-      </Box>
+      <div className="reset-buttons">
+        <button onClick={signOut}>Sign out</button>
+        <button onClick={resetGrid}>Reset Grid</button>
+      </div>
     </>
   );
 }

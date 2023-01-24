@@ -1,8 +1,8 @@
-import { DataStore } from '@aws-amplify/datastore'
-import { Game } from '../models';
 import { useEffect, useState } from 'react'
 
-export default function GameGrid(props) {
+import '../assets/sass/GameGrid.sass'
+
+export default function GameGrid({ shots }) {
   // const [shots, setShots] = useState([]);
   // const [ships, setShips] = useState([]);
   const [bodyRows, setBodyRows] = useState([]);
@@ -25,21 +25,21 @@ export default function GameGrid(props) {
         let key = alpha[j] + i;
         let label = j == 0 ? key : '';
         let className = j == 0 ? 'header' : 'grid';
-        className += props.shots.includes(key) ? ' hit' : '';
+        className += shots.includes(key) ? ' hit' : '';
         cols.push(<td className={className} key={key}>{label}</td>);
       }
       rows.push(<tr className={'row-' + i} key={'row-' + i}>{cols}</tr>);
     }
     setBodyRows(rows);
-  }, [props.shots]);
+  }, [shots]);
 
   return (
-    <>
-      <h3 className='box'>Targeting Scanner</h3>
+    <div className="card">
+      <h3>Targeting Scanner</h3>
       <table>
         <thead>{headerRows}</thead>
         <tbody>{bodyRows}</tbody>
       </table>
-    </>
+    </div>
   )
 }

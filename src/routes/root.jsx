@@ -1,19 +1,12 @@
 import { useEffect, useState } from 'react'
-
 import { DataStore } from '@aws-amplify/datastore'
 import { Game } from '../models'
-
-import {
-  Box,
-  Typography,
-} from '@mui/material'
-import Grid from '@mui/material/Unstable_Grid2'
 
 import AnimatedTitle from '../components/AnimatedTitle'
 import GameGrid from '../components/GameGrid'
 import History from '../components/History'
 import Ships from '../components/Ships'
-// import '../assets/styles.css'
+import '../assets/sass/styles.sass'
 
 export default function Root() {
   const [shots, setShots] = useState([]);
@@ -37,39 +30,18 @@ export default function Root() {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }} display={{ xs: "none", sm: "block" }}>
-        <Grid container spacing={0}>
-          <Grid xs={12}>
-            <AnimatedTitle>Battleship Bingo</AnimatedTitle>
-          </Grid>
-        </Grid>
-      </Box>
-      <Box sx={{ flexGrow: 1 }} display={{ sm: "none" }}>
-        <Grid container spacing={0}>
-          <Grid xs={12}>
-            <svg viewBox='0 0 635 230'>
-              <text x="40" y="100" fill="#24c200">Battleship</text>
-              <text x="180" y="180" fill="#24c200">Bingo</text>
-            </svg>
-          </Grid>
-        </Grid>
-      </Box>
-      <Box>
-        <Grid container spacing={0}>
-          <Grid xs={12} md={6} lg={4}>
-            <hr />
-            <GameGrid shots={shots} />
-          </Grid>
-          <Grid xs={12} md={6} lg={4}>
-            <hr />
-            <History shots={shots} />
-          </Grid>
-          <Grid xs={12} md={12} lg={4}>
-            <hr />
-            <Ships ships={ships} />
-          </Grid>
-        </Grid>
-      </Box>
+      <header>
+        <h1>Battleship Bingo</h1>
+      </header>
+      <hr />
+      <div className="cards">
+        <GameGrid shots={shots} />
+        <History shots={shots} />
+        <Ships ships={ships} />
+      </div>
+      <footer>
+        &copy; Longslice Brewery Inc.
+      </footer>
     </>
   )
 }

@@ -22,7 +22,14 @@
         "S3AndCloudFront": {}
       },
       "storage": {
-        "bingoSoundboard": {}
+        "bingoSoundboard": {},
+        "newBingo": {}
+      },
+      "function": {
+        "S3Triggercbc5aba2": {
+          "deploymentBucketName": "amplify-bingolongslicecom-staging-144940-deployment",
+          "s3Key": "amplify-builds/S3Triggercbc5aba2-4e526163703175712b74-build.zip"
+        }
       }
     }
   }

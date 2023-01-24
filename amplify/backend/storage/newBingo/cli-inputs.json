@@ -1,7 +1,7 @@
 {
-  "resourceName": "bingoSoundboard",
-  "policyUUID": "9ab00265",
-  "bucketName": "bingolongslicecom504856e1cadf4482bddf0476d272f7",
+  "resourceName": "newBingo",
+  "policyUUID": "14769c11",
+  "bucketName": "newbingo",
   "storageAccess": "authAndGuest",
   "guestAccess": [
     "READ"
@@ -11,6 +11,5 @@
     "READ",
     "DELETE"
   ],
-  "triggerFunction": "NONE",
   "groupAccess": {}
 }
