@@ -5,23 +5,26 @@
 
 body
   background-color: #020202
-  margin: 0 0 1rem
+  margin: auto
+  padding: 1rem 0
   @include media-small
-    margin: 1rem
+    margin: 0 1rem
+    min-height: initial!important
 
-h2, h3
+h2, h3, .sound-card .title
   background-color: #24c200
 
 hr
   border: none
-  border-bottom: 2px dashed #24c200
+  border-bottom: 5px dashed #24c200
   box-shadow: 0 0 10px #24c200
 
 .cards
   display: block
   @include media-small
     display: grid
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: 2fr 1fr 1fr
+    grid-row: 1
     gap: 1rem
 
 .card
@@ -30,6 +33,17 @@ hr
     margin-top: 0
   @include media-small
     margin-top: 0
+  & .play-area
+    border: 2px solid #24c200
+    background-color: #24c20011
+    padding-bottom: 1rem
+    padding: 0 1rem 0.5rem
+    text-align: justify
+    min-height: 5rem
 
-footer
-  margin-top: 5rem
+.auto-sound audio
+  width: 75px
+  &::-webkit-media-controls-mute-button,
+  &::-webkit-media-controls-fillscreen-button,
+  &::-webkit-media-controls-timeline
+    display: none

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { DataStore } from '@aws-amplify/datastore'
-import { Game } from '../models'
+import { ObserveBingo } from '../api/Bingo'
 
 import AnimatedTitle from '../components/AnimatedTitle'
 import GameGrid from '../components/GameGrid'
@@ -16,12 +15,11 @@ export default function Root() {
     /**
      * This keeps the grid fresh.
      */
-    const sub = DataStore.observeQuery(Game, (c) =>
-      c.id.eq("4e2f7a61-3aa9-416e-af73-ec2784006ed7")
-    ).subscribe(({ items }) => {
-      setShots(items[0].shots);
-      setShips(items[0].ships);
-    });
+    const sub = ObserveBingo()
+      .subscribe(({ items }) => {
+        setShots(items[0].shots);
+        setShips(items[0].ships);
+      });
 
     return () => {
       sub.unsubscribe();
@@ -32,8 +30,8 @@ export default function Root() {
     <>
       <header>
         <h1>Battleship Bingo</h1>
+        <hr />
       </header>
-      <hr />
       <div className="cards">
         <GameGrid shots={shots} />
         <History shots={shots} />

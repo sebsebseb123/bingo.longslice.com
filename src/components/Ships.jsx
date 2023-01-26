@@ -6,7 +6,7 @@ export default function Ships({ ships }) {
   return (
     <div className="card">
       <h3>Targets Acuired</h3>
-      <div className="ships-sunk">
+      <div className="ships-sunk play-area">
         {shipList.map(ship => <div className={ships.includes(ship) ? 'sunk' : ''} key={ship}>{ship}</div>)}
       </div>
     </div>

@@ -3,43 +3,38 @@ import { useEffect, useState } from 'react'
 import '../assets/sass/GameGrid.sass'
 
 export default function GameGrid({ shots }) {
-  // const [shots, setShots] = useState([]);
-  // const [ships, setShips] = useState([]);
-  const [bodyRows, setBodyRows] = useState([]);
+  const [gridCells, setGridCells] = useState([]);
 
-  const alpha = ['', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
-  let cols = [];
-  let headerRows = [];
-  for (let j = 0; j < 11; j++) {
-    let key = j == 0 ? 'X' : alpha[j];
-    let label = j == 0 ? '' : key;
-    cols.push(<th className="header" key={key}>{label}</th>);
-  }
-  headerRows.push(<tr key={'headerRow'}>{cols}</tr>);
+  const alphaValues = ['', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+  const numValues = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
   useEffect(() => {
-    let rows = [];
-    for (let i = 1; i < 11; i++) {
-      cols = [];
+    let cells = [];
+    for (let i = 0; i < 11; i++) {
       for (let j = 0; j < 11; j++) {
-        let key = alpha[j] + i;
-        let label = j == 0 ? key : '';
-        let className = j == 0 ? 'header' : 'grid';
+        // Set the key, label, class.
+        let key = alphaValues[j] + numValues[i];
+        let label = (j == 0 || i == 0) ? key : '';
+        let className = (j == 0 || i == 0) ? 'header' : 'grid';
+
+        // Add "hit" class to any hits we have.
         className += shots.includes(key) ? ' hit' : '';
-        cols.push(<td className={className} key={key}>{label}</td>);
+
+        // Great, add to our cells array.
+        cells.push(<div className={className} key={key}>{label}</div>);
       }
-      rows.push(<tr className={'row-' + i} key={'row-' + i}>{cols}</tr>);
     }
-    setBodyRows(rows);
+
+    // Update our grid cells.
+    setGridCells(cells);
   }, [shots]);
 
   return (
     <div className="card">
       <h3>Targeting Scanner</h3>
-      <table>
-        <thead>{headerRows}</thead>
-        <tbody>{bodyRows}</tbody>
-      </table>
+      <div className="game-grid play-area">
+        {gridCells}
+      </div>
     </div>
   )
 }

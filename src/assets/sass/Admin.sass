@@ -1,0 +1,43 @@
+body form fieldset.amplify-flex
+  max-width: 450px
+  margin: 2rem auto
+  text-align: center
+
+.sound-board
+  display: flex
+  gap: 1rem
+  flex-wrap: wrap
+  align-content: space-between
+
+.sound-card
+  border: 2px solid #24c200
+  background-color: #24c20011
+  flex: 1 0 300px
+  position: relative
+  font-size: 2rem
+  text-align: center
+  & .trash
+    position: absolute
+    top: 0
+    right: 0
+    border: none
+    background: none
+    box-shadow: 0 0 0
+    width: 2.5rem
+    height: 2.5rem
+    font-size: 1.5rem
+    opacity: 0.5
+    text-shadow: 0 0 15px #24c200, 0 0 10px #24c200, 0 0 5px #24c200
+    &:hover
+      opacity: 1
+      text-shadow: 0 0 15px #24c200, 0 0 10px #24c200, 0 0 5px #24c200
+  & .play-area
+    text-align: center
+    padding-top: 1rem
+    min-height: inherit
+    border: none
+    background: none
+
+.auto-sound .grid
+  text-align: center
+  padding: 1rem
