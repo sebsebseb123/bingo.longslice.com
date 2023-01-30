@@ -42,6 +42,21 @@ export async function FireShot() {
   return shot;
 }
 
+// Possible ship values.
+export const ShipValues = ['Cruiser', 'Destroyer', 'Submarine', 'Carrier', 'Battleship'];
+
+// Sink a ship and update AWS.
+export async function SinkShip(ship) {
+  const original = await DataStore.query(Game, "4e2f7a61-3aa9-416e-af73-ec2784006ed7");
+  await DataStore.save(
+    Game.copyOf(original, updated => {
+      updated.ships.includes(ship) ?
+        (updated.ships = updated.ships.filter(v => v !== ship)) :
+        updated.ships.push(ship);
+    })
+  )
+}
+
 export function PutAudioFile(file) {
   return Storage.put(file.name, file, {
     contentType: file.type,

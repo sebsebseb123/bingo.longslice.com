@@ -8,7 +8,48 @@
 .grid
   border: 1px solid #24c200
   padding: 2rem
+  position: relative
 
 .hit
   background-color: #24e200CC
   box-shadow: 0 0 20px #24c200AA
+  animation: 5s linear 0s 1 hit-alert
+
+.auto-play
+  background: none
+  border: none
+  box-shadow: none
+  position: absolute
+  height: 100%
+  width: 100%
+  top: 0
+  left: 0
+  margin: auto
+  color: #24e200
+  text-shadow: 0 0 5px black, 0 0 2px black
+  &:hover
+    border: none
+
+.auto-trash
+  border: none
+  background: none
+  box-shadow: none
+  position: absolute
+  font-size: 1rem
+  padding: 0
+  margin: 0
+  top: 0
+  right: 0
+  opacity: 0.5
+  &:hover
+    font-size: 1.15rem
+    opacity: 1
+    border: none
+    box-shadow: none
+    text-shadow: 0 0 5px red
+
+@keyframes hit-alert
+  from
+    background-color: red
+  to
+    background-color: #24e200CC

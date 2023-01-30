@@ -1,5 +1,6 @@
 import UploadCard from './UploadCard';
 import SoundCard from './SoundCard'
+import '../assets/sass/SoundBoard.sass'
 
 export default function SoundBoard({ filez, onClickDelete, onSelectFile }) {
   // Set to empty if there's nothing.

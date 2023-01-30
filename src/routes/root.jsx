@@ -9,7 +9,7 @@ import '../assets/sass/styles.sass'
 
 export default function Root() {
   const [shots, setShots] = useState([]);
-  const [ships, setShips] = useState([]);
+  const [shipsSunk, setShipsSunk] = useState([]);
 
   useEffect(() => {
     /**
@@ -18,7 +18,7 @@ export default function Root() {
     const sub = ObserveBingo()
       .subscribe(({ items }) => {
         setShots(items[0].shots);
-        setShips(items[0].ships);
+        setShipsSunk(items[0].ships);
       });
 
     return () => {
@@ -35,7 +35,7 @@ export default function Root() {
       <div className="cards">
         <GameGrid shots={shots} />
         <History shots={shots} />
-        <Ships ships={ships} />
+        <Ships shipsSunk={shipsSunk} />
       </div>
       <footer>
         &copy; Longslice Brewery Inc.

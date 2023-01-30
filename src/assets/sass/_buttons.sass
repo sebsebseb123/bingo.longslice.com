@@ -21,9 +21,11 @@ body button
   &:active
     border-style: inset
 
-.action-buttons button
+button.fire-button
   background-image: linear-gradient(315deg, #900, #F00)
   border-color: #900
+  padding: 1rem 2rem
+  width: 100%
 
 .ship-buttons
   display: flex
@@ -39,3 +41,11 @@ body button
     font-size: 1.25rem
     background-image: linear-gradient(315deg, #003e95, #00bdff)
     border-color: #003e95
+
+.control-buttons .ships-sunk
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-evenly
+  gap: 1rem
+  & .ship
+    flex-grow: 1
