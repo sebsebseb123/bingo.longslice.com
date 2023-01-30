@@ -3,9 +3,11 @@
 body
   font-family: 'VT323', monospace
   text-transform: uppercase
-  font-size: 3rem
+  font-size: 2rem
   color: #24e200BB
   text-shadow: 0 0 10px #24c200, 0 0 40px #24c200
+  @include media-small
+    font-size: 3rem
 
 body button,
 body input
@@ -37,17 +39,9 @@ h2, h3, .sound-card .title
 
 .header
   font-weight: normal
-  font-size: 2rem
-  @include media-small
-    font-size: 3rem
 
 footer
   font-family: 'Black Ops One', monospace
   font-size: 1rem
   text-align: right
   text-shadow: none
-
-.card .play-area
-  font-size: 2rem
-  @include media-small
-    font-size: 3rem
