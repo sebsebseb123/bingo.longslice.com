@@ -37,9 +37,17 @@ h2, h3, .sound-card .title
 
 .header
   font-weight: normal
+  font-size: 2rem
+  @include media-small
+    font-size: 3rem
 
 footer
   font-family: 'Black Ops One', monospace
   font-size: 1rem
   text-align: right
   text-shadow: none
+
+.card .play-area
+  font-size: 2rem
+  @include media-small
+    font-size: 3rem
