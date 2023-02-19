@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { withAuthenticator } from '@aws-amplify/ui-react'
-
 import {
   ObserveBingo,
   ResetBingo,

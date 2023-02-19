@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ObserveBingo } from '../api/Bingo'
 
-import AnimatedTitle from '../components/AnimatedTitle'
 import GameGrid from '../components/GameGrid'
 import History from '../components/History'
 import Ships from '../components/Ships'

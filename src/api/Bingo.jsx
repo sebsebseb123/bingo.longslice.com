@@ -4,6 +4,7 @@ import {
 } from 'aws-amplify'
 import { Game } from '../models'
 
+// Observes the game board.
 export function ObserveBingo() {
   return DataStore.observeQuery(Game, (c) => c.id.eq("4e2f7a61-3aa9-416e-af73-ec2784006ed7"));
 }
@@ -19,7 +20,7 @@ export async function ResetBingo() {
   )
 }
 
-// Recursive until we find a spot available.
+// Recursive until we find a spot available to fire a shot.
 function findShot(shots) {
   let alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
   let shot = alpha[Math.floor(Math.random() * 10)] + (Math.floor(Math.random() * 10) + 1);
