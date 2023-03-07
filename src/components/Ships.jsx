@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import {
   FireShot,
@@ -65,12 +66,18 @@ export default function Ships({ shipsSunk, admin }) {
     // Just make them divs.
     ships = ShipValues.map(ship => {
       return (
-        <div
-          className={shipsSunk.includes(ship) ? 'sunk ship' : 'ship'}
-          key={ship}
-        >
-          {ship}
-        </div>
+        <React.Fragment key={ship}>
+          < div
+            className={`ship-image ${ship}${shipsSunk.includes(ship) ? ' sunk' : ''}`
+            }
+          >
+          </div >
+          <div
+            className={`ship ${ship}${shipsSunk.includes(ship) ? ' sunk' : ''}`}
+          >
+            {ship}
+          </div>
+        </React.Fragment>
       );
     });
   }
