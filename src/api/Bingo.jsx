@@ -44,7 +44,13 @@ export async function FireShot() {
 }
 
 // Possible ship values.
-export const ShipValues = ['Cruiser', 'Destroyer', 'Submarine', 'Carrier', 'Battleship'];
+export const ShipValues = [
+  'Destroyer [2x]',
+  'Submarine [3x]',
+  'Cruiser [3x]',
+  'Battleship [4x]',
+  'Carrier [5x]',
+];
 
 // Sink a ship and update AWS.
 export async function SinkShip(ship) {

@@ -3,14 +3,12 @@ import SoundCard from './SoundCard'
 import '../assets/sass/SoundBoard.sass'
 
 export default function SoundBoard({ filez, onClickDelete, onSelectFile }) {
-  // Set to empty if there's nothing.
-  const boardSounds = filez.boardSounds ?? [];
-
+  console.log(filez);
   return (
     <div className="sound-board">
       <UploadCard onSelectFile={onSelectFile} />
       {
-        boardSounds.map((file) => {
+        filez.map((file) => {
           return (<SoundCard onClickDelete={onClickDelete} key={file.name} file={file} />);
         })
       }

@@ -2,24 +2,30 @@
   margin: 0 auto 2rem
   padding: 0.5rem 1.5rem
   display: grid
-  grid-template-columns: repeat(2, 1fr)
-  font-size: 4rem
+  grid-template-columns: 1fr 2fr
+  font-size: 3.5rem
   .ship
-    text-align: right
+    text-align: left
+    padding-left: 1rem
   .ship-image
+    min-height: 5rem
     background-repeat: no-repeat
     background-size: contain
-    background-position: center
+    background-position: right
     &.sunk
       filter: hue-rotate(250deg)
-    &.Cruiser
-      background-image: url("../img/cruiser.svg")
-    &.Battleship
-      background-image: url("../img/battleship.svg")
-    &.Submarine
-      background-image: url("../img/submarine.svg")
     &.Destroyer
       background-image: url("../img/destroyer.svg")
+      background-size: 50%
+    &.Submarine
+      background-image: url("../img/submarine.svg")
+      background-size: 70%
+    &.Cruiser
+      background-image: url("../img/cruiser.svg")
+      background-size: 70%
+    &.Battleship
+      background-image: url("../img/battleship.svg")
+      background-size: 85%
     &.Carrier
       background-image: url("../img/carrier.svg")
 

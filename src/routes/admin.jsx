@@ -17,11 +17,7 @@ import '../assets/sass/Admin.sass'
 const Admin = function ({ signOut }) {
   const [shots, setShots] = useState([]);
   const [shipsSunk, setShipsSunk] = useState([]);
-  const [filez, setFilez] = useState({
-    autoSounds: [],
-    autoSoundKeys: [],
-    boardSounds: [],
-  });
+  const [filez, setFilez] = useState([]);
 
   // On page load.
   useEffect(() => {
@@ -42,20 +38,8 @@ const Admin = function ({ signOut }) {
 
   const updateFilez = function () {
     async function fetchData() {
-      let resultz = await GetAudioFilez();
-      const regex = new RegExp('^[A-J][1-9]0?');
-      let autoSounds = resultz.filter(result => regex.test(result.name));
-      let boardSounds = resultz.filter(result => !regex.test(result.name));
-      let autoSoundKeys = autoSounds.map(sound => {
-        return sound.name.toUpperCase().replace(/\.wav|\.mp3/gi, '');
-      });
-
-      let tmp = {
-        autoSounds: autoSounds,
-        autoSoundKeys: autoSoundKeys,
-        boardSounds: boardSounds,
-      }
-      setFilez(tmp);
+      let resultz = await GetAudioFilez() ?? [];
+      setFilez(resultz);
     }
     fetchData();
   }
