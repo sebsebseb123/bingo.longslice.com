@@ -1,23 +1,4 @@
-import { useEffect, useState } from 'react'
-
 export default function SoundCard({ file, onClickDelete }) {
-  useEffect(() => {
-    let element = document.getElementById('audio-' + file.name.toUpperCase().replace(/\.WAV|\.MP3/gi, ''));
-
-    element.addEventListener('loadedmetadata', () => {
-      setAudio(element);
-    });
-
-    element.addEventListener('timeupdate', (e) => {
-      setCurrentTime(e.target.currentTime);
-    });
-
-    element.addEventListener('ended', (e) => {
-      setPlayingAudio(false);
-      setCurrentTime(0);
-    });
-  }, []);
-
   const emojis = ["✌", "😂", "😝", "😁", "😱", "👉", "🙌", "🍻", "🔥", "🌈", "☀", "🎈", "🌹", "💄", "🎀", "⚽", "🎾", "🏁", "😡", "👿", "🐻", "🐶", "🐬", "🐟", "🍀", "👀", "🚗", "🍎", "💝", "💙", "👌", "❤", "😍", "😉", "😓", "😳", "💪", "💩", "🍸", "🔑", "💖", "🌟", "🎉", "🌺", "🎶", "👠", "🏈", "⚾", "🏆", "👽", "💀", "🐵", "🐮", "🐩", "🐎", "💣", "👃", "👂", "🍓", "💘", "💜", "👊", "💋", "😘", "😜", "😵", "🙏", "👋", "🚽", "💃", "💎", "🚀", "🌙", "🎁", "⛄", "🌊", "⛵", "🏀", "🎱", "💰", "👶", "👸", "🐰", "🐷", "🐍", "🐫", "🔫", "👄", "🚲", "🍉", "💛", "💚", "🥶", "👻", "💫", "💦", "💅", "🦴", "👩‍🚀", "🎅"];
 
   function hashCode(str) {
