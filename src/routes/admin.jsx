@@ -7,6 +7,7 @@ import {
   PutAudioFile,
   DeleteAudioFile,
 } from '../api/Bingo'
+import Header from '../components/Header'
 import SoundBoard from '../components/SoundBoard'
 import GameGrid from '../components/GameGrid'
 import History from '../components/History'
@@ -62,10 +63,7 @@ const Admin = function ({ signOut }) {
 
   return (
     <>
-      <header>
-        <h1>Battleship Bingo</h1>
-        <hr />
-      </header>
+      <Header />
       <SoundBoard filez={filez} onClickDelete={onClickDelete} onSelectFile={onSelectFile} />
       <hr />
       <div className="cards">

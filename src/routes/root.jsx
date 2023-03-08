@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ObserveBingo } from '../api/Bingo'
 
+import Header from '../components/Header'
 import GameGrid from '../components/GameGrid'
 import History from '../components/History'
 import Ships from '../components/Ships'
@@ -27,10 +28,7 @@ export default function Root() {
 
   return (
     <>
-      <header>
-        <h1>Battleship Bingo</h1>
-        <hr />
-      </header>
+      <Header />
       <div className="cards">
         <GameGrid shots={shots} />
         <History shots={shots} />
