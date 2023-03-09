@@ -1,8 +1,59 @@
-.audio-player .play-icon
-  background: none
-  border: none
-  color: #24c200
-  box-shadow: none
-  text-shadow: 0 0 10px #24c200
-  &:hover
-    text-shadow: 0 0 5px #24c200, 0 0 10px #24c200, 0 0 15px #24c200
+.sound-board-filters
+  display: flex
+  flex-wrap: wrap
+  gap: 1rem
+  margin-bottom: 1rem
+  button
+    &.active
+      background-color: #24c20022
+      border-color: #3A3
+      border-style: inset
+      color: #8C8
+      background-image: linear-gradient(315deg, olive, green)
+
+.sound-board
+  display: flex
+  gap: 1rem
+  flex-wrap: wrap
+  align-content: space-between
+  transition: all 0.5s ease
+  .sound-card
+    transition: all 0.5s ease
+    border: 2px solid #24c200
+    background-color: #24c20011
+    flex: 1
+    position: relative
+    font-size: 2rem
+    text-align: center
+    &.hide
+      display: none
+
+    .title
+      font-size: 1.5rem
+      text-shadow: 0 0 10px white
+    .emoji
+      font-size: 1.25rem
+    .trash
+      position: absolute
+      top: 0
+      right: 0
+      border: none
+      background: none
+      box-shadow: 0 0 0
+      width: 2.5rem
+      height: 2.5rem
+      font-size: 1.5rem
+      opacity: 0.5
+      text-shadow: 0 0 15px #24c200, 0 0 10px #24c200, 0 0 5px #24c200
+      &:hover
+        opacity: 1
+        text-shadow: 0 0 15px #24c200, 0 0 10px #24c200, 0 0 5px #24c200
+    .play-area
+      text-align: center
+      padding-top: 1rem
+      min-height: inherit
+      border: none
+      background: none
+      audio
+        width: 250px
+        height: 25px

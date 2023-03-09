@@ -1,5 +1,7 @@
-export default function SoundCard({ file, onClickDelete }) {
+export default function SoundCard({ file, editMode, onClickDelete, hide }) {
   const emojis = ["✌", "😂", "😝", "😁", "😱", "👉", "🙌", "🍻", "🔥", "🌈", "☀", "🎈", "🌹", "💄", "🎀", "⚽", "🎾", "🏁", "😡", "👿", "🐻", "🐶", "🐬", "🐟", "🍀", "👀", "🚗", "🍎", "💝", "💙", "👌", "❤", "😍", "😉", "😓", "😳", "💪", "💩", "🍸", "🔑", "💖", "🌟", "🎉", "🌺", "🎶", "👠", "🏈", "⚾", "🏆", "👽", "💀", "🐵", "🐮", "🐩", "🐎", "💣", "👃", "👂", "🍓", "💘", "💜", "👊", "💋", "😘", "😜", "😵", "🙏", "👋", "🚽", "💃", "💎", "🚀", "🌙", "🎁", "⛄", "🌊", "⛵", "🏀", "🎱", "💰", "👶", "👸", "🐰", "🐷", "🐍", "🐫", "🔫", "👄", "🚲", "🍉", "💛", "💚", "🥶", "👻", "💫", "💦", "💅", "🦴", "👩‍🚀", "🎅"];
+
+  const name = file.name.split('-')[1] ? file.name.split('-')[1] : file.name;
 
   function hashCode(str) {
     let hash = 0;
@@ -12,16 +14,25 @@ export default function SoundCard({ file, onClickDelete }) {
 
   const hashmoji = hashCode(file.name);
 
+  // Generate random hex colour values based on the file name as a seed.
+  const randomColor1 = (hashmoji & 0x00FFFFFF).toString(16).toUpperCase();
+  const randomColor2 = ((hashmoji + 123456) & 0x00FFFFFF).toString(16).toUpperCase();
+  const randomColor3 = ((hashmoji - 123456) & 0x00FFFFFF).toString(16).toUpperCase();
+
   return (
-    <div className="sound-card card">
+    <div className={`sound-card card${hide ? ' hide' : ''}`}>
+      {editMode &&= <button className="trash" onClick={onClickDelete} value={file.name}>🗑️</button>}
       <div
         className="title"
         style={{
-          textShadow: "0 0 5px #" + hashmoji.toString(16).substring(0, 6)
-            + ", 0 0 15px #" + hashmoji.toString(16).substring(0, 6),
+          backgroundImage: `linear-gradient(315deg, #${randomColor1}99, #${randomColor2}99)`,
+          backgroundColor: `#${randomColor3}99`
         }}
       >
-        {emojis[parseInt(hashmoji.toString().slice(-2))]}{file.name.toUpperCase().replace(/\.WAV|\.MP3/gi, '')}
+        {name.toUpperCase().replace(/\.WAV|\.MP3/gi, '')}
+        <span className="emoji">
+          {emojis[parseInt(hashmoji.toString().slice(-2))]}
+        </span>
       </div>
       <div className="play-area">
         <audio
@@ -31,7 +42,6 @@ export default function SoundCard({ file, onClickDelete }) {
           preload="true"
         />
       </div>
-      <button className="trash" onClick={onClickDelete} value={file.name}>🗑️</button>
     </div>
   );
 }

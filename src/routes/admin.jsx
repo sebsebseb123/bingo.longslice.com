@@ -19,6 +19,7 @@ const Admin = function ({ signOut }) {
   const [shots, setShots] = useState([]);
   const [shipsSunk, setShipsSunk] = useState([]);
   const [filez, setFilez] = useState([]);
+  const [editMode, setEditMode] = useState(false);
 
   // On page load.
   useEffect(() => {
@@ -61,10 +62,13 @@ const Admin = function ({ signOut }) {
     updateFilez();
   }
 
+  const onClickEditMode = function () {
+    setEditMode(!editMode);
+  }
+
   return (
     <>
-      <Header />
-      <SoundBoard filez={filez} onClickDelete={onClickDelete} onSelectFile={onSelectFile} />
+      <SoundBoard filez={filez} editMode={editMode} onClickDelete={onClickDelete} onSelectFile={onSelectFile} />
       <hr />
       <div className="cards">
         <GameGrid
@@ -80,6 +84,7 @@ const Admin = function ({ signOut }) {
       <footer>
         <div className="reset-buttons">
           <button onClick={signOut}>Sign out</button>
+          <button className={`edit-button${editMode ? ' edit' : ''}`} onClick={onClickEditMode}>Edit Mode</button>
           <button onClick={ResetBingo}>Reset Grid</button>
         </div>
         &copy; Longslice Brewery Inc.
