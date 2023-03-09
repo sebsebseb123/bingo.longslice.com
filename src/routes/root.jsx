@@ -10,8 +10,22 @@ import '../assets/sass/styles.sass'
 export default function Root() {
   const [shots, setShots] = useState([]);
   const [shipsSunk, setShipsSunk] = useState([]);
+  const maxBustImage = 44;
+
+  // Function to update the image src in #bust.
+  function updateBustImage() {
+    const bust = document.querySelector('#bust');
+    bust.style.backgroundImage = `url(/jimjams/bust-${Math.ceil(Math.random() * maxBustImage)}.png)`;
+  }
 
   useEffect(() => {
+    /**
+     * Update the bust image every 5 seconds.
+     */
+    const interval = setInterval(() => {
+      updateBustImage();
+    }, 20000);
+
     /**
      * This keeps the grid fresh.
      */
@@ -19,6 +33,7 @@ export default function Root() {
       .subscribe(({ items }) => {
         setShots(items[0].shots);
         setShipsSunk(items[0].ships);
+        updateBustImage();
       });
 
     return () => {
@@ -27,7 +42,7 @@ export default function Root() {
   }, []);
 
   return (
-    <>
+    <div>
       <Header />
       <div className="cards">
         <GameGrid shots={shots} />
@@ -37,6 +52,6 @@ export default function Root() {
       <footer>
         &copy; Longslice Brewery Inc.
       </footer>
-    </>
+    </div>
   )
 }
